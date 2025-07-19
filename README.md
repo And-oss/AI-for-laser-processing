@@ -11,14 +11,22 @@
 ├── ai_service
 │   ├── Dockerfile
 │   ├── app.py
-│   ├── laser_model600.pth
+│   ├── laser_model_mk2.pth
 │   ├── model_ai.py
 │   └── requirements.txt
 ├── docker-compose.yml
 ├── go.mod
 ├── go.sum
 ├── main.go
+├── neural_network_source
+│   └── src.ipynb
 ├── predictions
+├── preza
+│   └── AI-for-laser-processing(s5Xr4y5Piw-team).pdf
+├── screens
+│   ├── ERD.png
+│   ├── main_page.jpg
+│   └── result_page.png
 ├── templates
 │   ├── error.html
 │   ├── index.html
