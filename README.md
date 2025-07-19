@@ -32,6 +32,7 @@
 - ai_service - ИИ модель с адапитованым под нее API 
 - templates - шаблоны для веб страниц 
 - в главной директории лежит backend приложения на golang и docker-compose 
+- neural_network_source - исходник модели
 - preza - лежит презентация на проект
 
 ## План решения
