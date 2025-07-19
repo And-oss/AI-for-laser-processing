@@ -8,7 +8,7 @@ import torch
 app = Flask(__name__, static_folder='uploads', static_url_path='/files')     
 UPLOAD_FOLDER = '/app/uploads'
 PREDICTION_FOLDER = '/app/predictions'
-MODEL_PATH = 'laser_model_mk15.pth'
+MODEL_PATH = 'laser_model_mk2.pth'
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(PREDICTION_FOLDER, exist_ok=True)
