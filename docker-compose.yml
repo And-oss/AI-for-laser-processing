@@ -1,0 +1,45 @@
+services:
+  file-uploader:
+    build: .
+    container_name: file-uploader
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - uploads_volume:/app/uploads
+      - ./predictions:/app/predictions
+      - ./templates:/app/templates
+    environment:
+      - UPLOAD_DIR=/app/uploads
+      - PORT=8080
+      - GIN_MODE=release  
+    depends_on:
+      uploads_run:
+        condition: service_completed_successfully
+
+  model-ai:
+    build:
+      context: ./ai_service
+      dockerfile: Dockerfile
+    container_name: model-ai
+    restart: unless-stopped
+    volumes:
+      - uploads_volume:/app/uploads
+      - ./predictions:/app/predictions
+    ports:
+      - "5000:5000"
+
+  uploads_run:
+    image: alpine:latest
+    container_name: uploads_run
+    command: sh -c "chown -R 10000:10000 /uploads && echo 'Uploads directory initialized'"
+    volumes:
+      - uploads_volume:/uploads
+
+volumes:
+  uploads_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./uploads

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 480px;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a202c;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-button {
+            background-color: #3182ce;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+        }
+
+        .custom-file-button:hover {
+            background-color: #2b6cb0;
+            transform: translateY(-2px);
+        }
+
+        #file-name {
+            margin-top: 12px;
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        button[type="submit"] {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .requirements {
+            margin-top: 25px;
+            background-color: #ebf8ff;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #2a4365;
+        }
+
+        .requirements ul {
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Upload Your File</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="file-input-wrapper">
+                <label class="custom-file-button" for="file">Select File</label>
+                <input type="file" id="file" name="file" required>
+                <div id="file-name">No file selected</div>
+            </div>
+            <button type="submit">Upload</button>
+        </form>
+        <div class="requirements">
+            <strong>Requirements:</strong>
+            <ul>
+                <li>Max size: 10MB</li>
+                <li>Allowed types: PNG</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file');
+        const fileNameDisplay = document.getElementById('file-name');
+
+        fileInput.addEventListener('change', function () {
+            fileNameDisplay.textContent = fileInput.files.length
+                ? fileInput.files[0].name
+                : "No file selected";
+        });
+    </script>
+</body>
+</html>
