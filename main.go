@@ -76,7 +76,7 @@ func handleSingleUpload(c *gin.Context) {
 	}
 
 	// === Отправляем файл на Flask API ===
-	flaskURL := "http://localhost:5000/predict"
+	flaskURL := "http://model-ai:5000/predict"
 
 	resp, err := postFileToFlask(flaskURL, "file", dst)
 	if err != nil {

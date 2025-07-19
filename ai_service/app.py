@@ -4,10 +4,11 @@ import uuid
 from model_ai import load_model, preprocess_png, predict_and_save_masks
 import torch
 
-app = Flask(__name__)
+
+app = Flask(__name__, static_folder='uploads', static_url_path='/files')     
 UPLOAD_FOLDER = '/app/uploads'
 PREDICTION_FOLDER = '/app/predictions'
-MODEL_PATH = 'laser_model600.pth'
+MODEL_PATH = 'laser_model_mk1.pth'
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(PREDICTION_FOLDER, exist_ok=True)
