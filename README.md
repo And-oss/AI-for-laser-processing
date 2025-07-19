@@ -49,7 +49,7 @@ $ sudo docker compose up --build -d
 ![ok](screens/main_page.jpg)
 
 Страница вывода результата
-![ok](screens/result_page.jpg)
+![ok](screens/result_page.png)
 
 ### Краткое описание решения 
 
