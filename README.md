@@ -1,5 +1,7 @@
 # AI-for-laser-processing
 
+#### s5Xr4y5Piw team
+
 
 Дерево проекта
 ```
@@ -30,6 +32,7 @@
 - ai_service - ИИ модель с адапитованым под нее API 
 - templates - шаблоны для веб страниц 
 - в главной директории лежит backend приложения на golang и docker-compose 
+- preza - лежит презентация на проект
 
 ## План решения
 
